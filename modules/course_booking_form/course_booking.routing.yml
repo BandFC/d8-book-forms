@@ -1,0 +1,11 @@
+course_booking.booking_form:
+  path: '/commercial_booking_form/{course_title}/{course_code}/{course_id}/{course_date}'
+  defaults:
+    _form: '\Drupal\course_booking\Form\CourseBookingForm'
+    _title: 'Commercial Booking Form'
+    course_title: ''
+    course_code: ''
+    course_id: ''
+    course_date: ''
+  requirements:
+    _role: 'anonymous+authenticated'

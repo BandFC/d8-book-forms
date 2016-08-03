@@ -1,0 +1,51 @@
+<?php
+
+/**
+   * Implements hook_mail().
+   */
+function course_booking_mail($key, &$message, $params) {
+
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+
+  switch ($key) {
+
+    case 'user_confirmation':
+      $message['subject'] = t('Illuminate Training Solution Booking Form Submitted');
+      $message['body'][] = t("<p>Thank you for recent enquiry a member of the commercial team we will contact you within 24hrs</p>");
+      $message['body'][] = t("<p>Yours<br />Neil</p>");
+      $message['body'][] = t("<p>The commercial team Illuminate Training Solutions.<br />03300241234.</p>");
+      $message['body'][] = t("<p>Submitted Values");
+      $message['body'][] = t('<p>Name: ' . $params['message']['name'] . '</p>');
+      $message['body'][] = t('<p>Email: ' . $params['message']['email'] . '</p>');      
+      $message['body'][] = t('<p>Phone Number: ' . $params['message']['phone_number'] . '</p>');
+      $message['body'][] = t('<p>Address: ' . $params['message']['house'] . ' ' .
+                                              $params['message']['street'] . ', ' .
+                                              $params['message']['city'] . ' , ' .
+                                              $params['message']['county'] .
+                                                '</p>');
+      $message['body'][] = t('<p>Course: ' . $params['message']['course_title'] . '</p>');
+      break;
+
+    case 'internal_notification':
+      $message['subject'] = t('Booking Form Submitted');
+      $message['body'][] = t("<p>New course booking, submission details:.</p>");
+      $message['body'][] = t("<p>Submitted Values</p>");    
+      $message['body'][] = t('<p>Name: ' . $params['message']['name'] . '</p>');
+      $message['body'][] = t('<p>Email: ' . $params['message']['email'] . '</p>');      
+      $message['body'][] = t('<p>Phone Number: ' . $params['message']['phone_number'] . '</p>');
+      $message['body'][] = t('<p>Address: ' . $params['message']['house'] . ' .' . 
+                                              $params['message']['street'] . ', ' .
+                                              $params['message']['city'] . ' , ' .
+                                              $params['message']['county'] .
+                                                '</p>');
+      $message['body'][] = t('<p>Course Title: ' . $params['message']['course_title'] . '</p>');       
+      $message['body'][] = t('<p>Course Code: ' . $params['message']['course_code'] . '</p>'); 
+      $message['body'][] = t('<p>Course ID: ' . $params['message']['course_id'] . '</p>'); 
+      $message['body'][] = t('<p>Course Date: ' . $params['message']['course_date'] . '</p>'); 
+      break;    
+    }
+  }
+
+  ?>

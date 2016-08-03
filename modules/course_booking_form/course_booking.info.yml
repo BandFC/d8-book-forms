@@ -1,0 +1,14 @@
+name: Course Booking Form
+description: 'Course booking form containing additional course information'
+package: 'Booking Forms'
+type: module
+dependencies: 
+  - basic_booking
+core: 8.x
+version: 8.x-1.0-dev
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+name: Basic Booking Form
+description: 'Provides base booking form class for extending, no functionality on its own please enable on of the submodules'
+package: 'Booking Forms'
+type: module
+core: 8.x
+version: 8.x-1.0-dev
